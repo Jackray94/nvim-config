@@ -61,7 +61,15 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, {})
   vim.keymap.set('n', 'gr', require('telescope.builtin').lsp_references, {})
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+  vim.keymap.set('n', 'gH', ":vsplit<CR>:ClangdSwitchSourceHeader<CR>", {})
+  vim.keymap.set('n', 'gh', ":ClangdSwitchSourceHeader<CR>", {})
+  vim.keymap.set('n', '<leader>ma', ":Telescope marks<CR>")
+  vim.keymap.set('n', '<leader>kk', ":cprev<CR>")
+  vim.keymap.set('n', '<leader>ll', ":cnext<CR>")
+
+
 end
+
 
 require'lspconfig'.clangd.setup{
   on_attach = on_attach,
